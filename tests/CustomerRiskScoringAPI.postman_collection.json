@@ -1,0 +1,62 @@
+{
+  "info": {
+    "name": "Customer Risk Scoring API",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST /customer/add",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Rahul\",\n  \"age\": 28,\n  \"income\": 45000,\n  \"activity_score\": 62\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/customer/add", "host": ["{{baseUrl}}"], "path": ["customer", "add"] }
+      }
+    },
+    {
+      "name": "GET /customer/{id}",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/customer/1", "host": ["{{baseUrl}}"], "path": ["customer", "1"] }
+      }
+    },
+    {
+      "name": "POST /risk/score",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customer_id\": 1,\n  \"age\": 28,\n  \"income\": 45000,\n  \"activity_score\": 62\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/risk/score", "host": ["{{baseUrl}}"], "path": ["risk", "score"] }
+      }
+    },
+    {
+      "name": "GET /risk/{customer_id}",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/risk/1", "host": ["{{baseUrl}}"], "path": ["risk", "1"] }
+      }
+    },
+    {
+      "name": "GET /docs",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/docs", "host": ["{{baseUrl}}"], "path": ["docs"] }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://127.0.0.1:8000" }
+  ]
+}
+
